@@ -1,0 +1,34 @@
+{
+  "name": "chuck-rtc",
+  "version": "0.0.1",
+  "description": "Chucl real team charts",
+  "main": "chuck.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "pretest": "npm install",
+    "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
+    "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js --single-run",
+    "postinstall": "./node_modules/.bin/bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kaizenteamSWE/chuck-rtc.git"
+  },
+  "author": "Kaizen-Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaizenteamSWE/chuck-rtc/issues"
+  },
+  "homepage": "https://github.com/kaizenteamSWE/chuck-rtc",
+  "devDependencies": {
+    "karma": "^0.12.16",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-jasmine": "^0.1.5"
+  },
+  "dependencies": {
+    "bower": "^1.4.1"
+  }
+}
