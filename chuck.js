@@ -24,6 +24,7 @@
         chuckdir + 'main/model/norrischart/BarChartImpl.js',
         chuckdir + 'main/model/norrischart/LineChartImpl.js',
         chuckdir + 'main/model/norrischart/MapChartImpl.js',
+        chuckdir + 'main/model/norrischart/DonutChartImpl.js',
         chuckdir + 'main/model/norrischart/TableImpl.js',
 
         chuckdir + 'main/model/norrischart/BarChartInPlaceUpdater.js',
@@ -31,6 +32,7 @@
         chuckdir + 'main/model/norrischart/LineChartStreamUpdater.js',
         chuckdir + 'main/model/norrischart/MapChartInPlaceUpdater.js',
         chuckdir + 'main/model/norrischart/MapChartMovieUpdater.js',
+        chuckdir + 'main/model/norrischart/DonutChartInPlaceUpdater.js',
         chuckdir + 'main/model/norrischart/TableInPlaceUpdater.js',
         chuckdir + 'main/model/norrischart/TableStreamUpdater.js'
     ]
