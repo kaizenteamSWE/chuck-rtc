@@ -10,6 +10,7 @@
         chuckdir + 'main/lib/GoogleCharts.js',
         chuckdir + 'main/lib/DataTables.js',
         chuckdir + 'main/lib/SocketIO.js',
+        chuckdir + 'main/lib/AMCharts.js',
 
 
         chuckdir + 'main/model/services/ChartRequester.js',
@@ -18,6 +19,7 @@
         chuckdir + 'main/directive/ChuckBarChart.js',
         chuckdir + 'main/directive/ChuckLineChart.js',
         chuckdir + 'main/directive/ChuckMapChart.js',
+        chuckdir + 'main/directive/ChuckDonutChart.js',
         chuckdir + 'main/directive/ChuckTable.js',
 
         chuckdir + 'main/model/norrischart/ChartImpl.js',

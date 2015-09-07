@@ -17,7 +17,7 @@
 
 angular.module('chuck-chart')
 
-.factory('DonutChartImpl', ['ChartImpl', 'DonutChartInPlaceUpdater', function (ChartImpl, DoutChartInPlaceUpdater) {
+.factory('DonutChartImpl', ['ChartImpl', 'DonutChartInPlaceUpdater', function (ChartImpl, DonutChartInPlaceUpdater) {
 
     var defaults = {
         description : 'This is a donut chart.',

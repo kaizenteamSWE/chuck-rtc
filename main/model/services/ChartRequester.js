@@ -33,7 +33,7 @@ angular.module('chuck-requester')
  * @param settings
  * @constructor
  */
-.factory('ChartRequester', ['ChartImpl', 'SocketIO', '$rootScope', '$timeout', '$q', 'BarChartImpl', 'LineChartImpl', 'MapChartImpl', 'TableImpl', function (ChartImpl, SocketIO, $rootScope, $timeout, $q) {
+.factory('ChartRequester', ['ChartImpl', 'SocketIO', '$rootScope', '$timeout', '$q', 'BarChartImpl', 'LineChartImpl', 'MapChartImpl', 'DonutChart', 'TableImpl', function (ChartImpl, SocketIO, $rootScope, $timeout, $q) {
     return {
 		
 		/**
