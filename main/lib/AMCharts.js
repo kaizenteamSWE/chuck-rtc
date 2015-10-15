@@ -17,23 +17,11 @@ angular.module('chuck-libs')
         var deferred = $q.defer();
 
         $.ajax({
-            url: 'http://www.amcharts.com/lib/3/amcharts.js',
+            url: CHUCK_DIR + '/bower_components/amcharts/dist/amcharts/amcharts.js',
             dataType: 'script',
             cache: true,
             success: deferred.resolve
         });
-        $('<script>')
-            .appendTo('head')
-            .attr({
-                src: 'http://www.amcharts.com/lib/3/amcharts.js',
-                type: 'text/javascript'
-            });
-        $('<script>')
-            .appendTo('head')
-            .attr({
-                src: 'http://www.amcharts.com/lib/3/serial.js',
-                type: 'text/javascript'
-            });
 
         return deferred.promise;
     }]);
