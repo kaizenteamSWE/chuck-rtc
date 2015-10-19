@@ -13,11 +13,11 @@
  * ================================================================================
  */
 angular.module('chuck-libs')
-    .factory('AMCharts', ['$q', function ($q) {
+    .factory('AMCharts', ['$q', 'CHUCK_DIR', function ($q, CHUCK_DIR) {
         var deferred = $q.defer();
 
         $.ajax({
-            url: CHUCK_DIR + '/bower_components/amcharts/dist/amcharts/amcharts.js',
+            url: CHUCK_DIR + 'bower_components/amcharts/dist/amcharts/amcharts.js',
             dataType: 'script',
             cache: true,
             success: deferred.resolve

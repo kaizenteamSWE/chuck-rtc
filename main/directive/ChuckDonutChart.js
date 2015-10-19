@@ -33,7 +33,7 @@ angular.module('chuck')
                 var donutchart = null;
                 var options = { };
 
-                ChartRequester.bind(attrs.chartEndpoint,attrs.chartId)
+                ChartRequester.bind(attrs.chartEndpoint, attrs.chartId)
                     .then(function (chart) {
                         if(chart.getType() === 'donutchart') {
                             scope.chart = chart;
@@ -46,7 +46,7 @@ angular.module('chuck')
                                 scope.chart.settings.legend.position = attrs.legendPosition;
                             }
                             if(attrs.showLegend) {
-                                scope.chart.settings.legend.position = attrs.showLegend === 'true';
+                                scope.chart.settings.legend.enabled = attrs.showLegend === 'true';
                             }
 
                             init();
@@ -61,33 +61,34 @@ angular.module('chuck')
                     });
 
                 function init() {
-                    var chartData = scope.chart.getData();
-                    var chartSettings = scope.chart.getSettings();
-
-                    AmCharts.makeChart("chartdiv", {
-                        "type": "pie",
-                        "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
-                        "innerRadius": chartSettings.innerRadius,
-                        "labelsEnabled": chartSettings.lables.labelsEnabled,
-                        "labelRadius": chartSettings.lables.labelRadius,
-                        "color": chartSettings.lables.color,
-                        "legend": chartSettings.legend,
-                        "startDuration": chartSettings.style.animationDuration,
-                        "backgroundColor": chartSettings.style.backgroundColor,
-                        "colorField": "color",
-                        "titleField": "name",
-                        "valueField": "value",
-                        "allLabels": [],
-                        "balloon": {},
-                        "titles": [],
-                        "dataProvider": chartData.datasets
-                    });
+                    if (scope.chart != null) {
+                        var chartData = scope.chart.getData();
+                        var chartSettings = scope.chart.getSettings();
+                        AmCharts.makeChart("chartdiv", {
+                           "type": "pie",
+                            "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+                            "innerRadius": chartSettings.innerRadius,
+                            "labelsEnabled": chartSettings.lables.labelsEnabled,
+                            "labelRadius": chartSettings.lables.labelRadius,
+                            "color": chartSettings.lables.color,
+                            "legend": chartSettings.legend,
+                            "startDuration": chartSettings.style.animationDuration,
+                            "backgroundColor": chartSettings.style.backgroundColor,
+                            "colorField": "color",
+                            "titleField": "name",
+                            "valueField": "value",
+                            "allLabels": [],
+                            "balloon": {},
+                            "titles": [],
+                            "dataProvider": chartData.datasets
+                        });
+                    }
                 };
 
-                /*function render(newValue, oldValue) {
+                function render(newValue, oldValue) {
                     var newData = newValue.getData();
 
-                    var data = new google.visualization.DataTable();
+                    /* var data = new google.visualization.DataTable();
 
                     data.addColumn('string', 'headers');
                     newData.datasets.forEach(function (dataset) {
@@ -104,10 +105,10 @@ angular.module('chuck')
                     }
 
                     barchart.draw(data, options);
-
+*/
                 }
 
-                var timeout = null;
+                /* var timeout = null;
                 function resize() {
                     timeout = null;
                     var time = options.animation.duration;

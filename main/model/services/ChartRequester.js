@@ -33,7 +33,7 @@ angular.module('chuck-requester')
  * @param settings
  * @constructor
  */
-.factory('ChartRequester', ['ChartImpl', 'SocketIO', '$rootScope', '$timeout', '$q', 'BarChartImpl', 'LineChartImpl', 'MapChartImpl', 'DonutChart', 'TableImpl', function (ChartImpl, SocketIO, $rootScope, $timeout, $q) {
+.factory('ChartRequester', ['ChartImpl', 'SocketIO', '$rootScope', '$timeout', '$q', 'BarChartImpl', 'LineChartImpl', 'MapChartImpl', 'DonutChartImpl', 'TableImpl', function (ChartImpl, SocketIO, $rootScope, $timeout, $q) {
     return {
 		
 		/**
@@ -70,14 +70,20 @@ angular.module('chuck-requester')
 
                 socket.on('chart', function (type, settings, data) {
                     var chart = ChartImpl.createChart(type, id);
-                    chart.setSettings(settings);
-                    chart.setData(data);
-                    socket.on('update', function (updateType, updateData) {
-                        $rootScope.$apply(function () {
-                            chart.update(updateType, updateData);
+                    if (chart) {
+                        chart.setSettings(settings);
+                        chart.setData(data);
+                        socket.on('update', function (updateType, updateData) {
+                            $rootScope.$apply(function () {
+                                chart.update(updateType, updateData);
+                            });
                         });
-                    });
-                    deferred.resolve(chart);
+                        deferred.resolve(chart);
+                    }
+                    else {
+                        alert("ERRORE: chart == null");
+                    }
+                    
                 });
 
                 socket.on('error', function (reason) {
