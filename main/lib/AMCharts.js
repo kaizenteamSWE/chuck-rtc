@@ -20,7 +20,9 @@ angular.module('chuck-libs')
             url: CHUCK_DIR + 'bower_components/amcharts/dist/amcharts/amcharts.js',
             dataType: 'script',
             cache: true,
-            success: deferred.resolve
+            success: function() {
+                deferred.resolve;
+            }
         });
 
         return deferred.promise;

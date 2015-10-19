@@ -1,6 +1,6 @@
 {
   "name": "chuck-rtc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Chucl real team charts",
   "main": "chuck.js",
   "directories": {

@@ -27,6 +27,9 @@ angular.module('chuck')
             if(!attrs.chartEndpoint || !attrs.chartId) {
                 throw new Error('chart-endpoint and chart-id are mandatory');
             }
+            else {
+                scope.ID=attrs.chartId;
+            }
 
             AMCharts.then(function () {
 
@@ -64,13 +67,13 @@ angular.module('chuck')
                     if (scope.chart != null) {
                         var chartData = scope.chart.getData();
                         var chartSettings = scope.chart.getSettings();
-                        AmCharts.makeChart("chartdiv", {
+                        AMCharts.makeChart(attrs.chartId, {
                            "type": "pie",
                             "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
                             "innerRadius": chartSettings.innerRadius,
-                            "labelsEnabled": chartSettings.lables.labelsEnabled,
-                            "labelRadius": chartSettings.lables.labelRadius,
-                            "color": chartSettings.lables.color,
+                            "labelsEnabled": chartSettings.labels.labelsEnabled,
+                            "labelRadius": chartSettings.labels.labelRadius,
+                            "color": chartSettings.labels.color,
                             "legend": chartSettings.legend,
                             "startDuration": chartSettings.style.animationDuration,
                             "backgroundColor": chartSettings.style.backgroundColor,
