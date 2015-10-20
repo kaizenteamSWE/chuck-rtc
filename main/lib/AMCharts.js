@@ -25,5 +25,12 @@ angular.module('chuck-libs')
             }
         });
 
+        $('<script>')
+            .appendTo('head')
+            .attr({
+                type:'text/javascript',
+                src: CHUCK_DIR + 'bower_components/amcharts/dist/amcharts/pie.js'
+            });
+
         return deferred.promise;
     }]);
