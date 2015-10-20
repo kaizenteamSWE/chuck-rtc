@@ -31,9 +31,8 @@ angular.module('chuck')
                 scope.ID=attrs.chartId;
             }
 
-            AMCharts.then(function () {
+            AmCharts.ready(function () {
 
-                var donutchart = null;
                 var options = { };
 
                 ChartRequester.bind(attrs.chartEndpoint, attrs.chartId)
@@ -67,7 +66,16 @@ angular.module('chuck')
                     if (scope.chart != null) {
                         var chartData = scope.chart.getData();
                         var chartSettings = scope.chart.getSettings();
-                        AMCharts.makeChart(attrs.chartId, {
+                        
+                        for (var i=0; i<chartData.datasets.length; i++) {
+                            var name=chartData.datasets[i].name;
+                            var color=chartData.datasets[i].color;
+                            var value=chartData.datasets[i].value;
+                            var row={"name": name, "color":color, "value":value};
+                            dataProvider.push(row);
+                        }
+
+                        scope.donutchart=AMCharts.makeChart(attrs.chartId, {
                            "type": "pie",
                             "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
                             "innerRadius": chartSettings.innerRadius,
@@ -83,32 +91,15 @@ angular.module('chuck')
                             "allLabels": [],
                             "balloon": {},
                             "titles": [],
-                            "dataProvider": chartData.datasets
+                            "dataProvider": dataProvider
                         });
                     }
                 };
 
                 function render(newValue, oldValue) {
                     var newData = newValue.getData();
-
-                    /* var data = new google.visualization.DataTable();
-
-                    data.addColumn('string', 'headers');
-                    newData.datasets.forEach(function (dataset) {
-                        data.addColumn('number', dataset.name || 'unknow');
-                    });
-
-                    for(var i = 0; i < newData.labels.length; i++) {
-                        var row = [];
-                        row.push(newData.labels[i]);
-                        newData.datasets.forEach(function (dataset) {
-                            row.push(dataset.values[i]);
-                        });
-                        data.addRow(row);
-                    }
-
-                    barchart.draw(data, options);
-*/
+                    scope.donutchart.dataProvider = newData.datasets;
+                    scope.donutchart.validateData();
                 }
 
                 /* var timeout = null;
