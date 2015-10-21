@@ -21,6 +21,7 @@
         chuckdir + 'main/directive/ChuckMapChart.js',
         chuckdir + 'main/directive/ChuckDonutChart.js',
         chuckdir + 'main/directive/ChuckTable.js',
+        chuckdir + 'main/directive/AMChuckBarChart.js',
 
         chuckdir + 'main/model/norrischart/ChartImpl.js',
         chuckdir + 'main/model/norrischart/BarChartImpl.js',
