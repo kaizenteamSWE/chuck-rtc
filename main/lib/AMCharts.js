@@ -32,5 +32,12 @@ angular.module('chuck-libs')
                 src: CHUCK_DIR + 'bower_components/amcharts/dist/amcharts/pie.js'
             });
 
+        $('<script>')
+            .appendTo('head')
+            .attr({
+                type:'text/javascript',
+                src: CHUCK_DIR + 'bower_components/amcharts/dist/amcharts/serial.js'
+            });
+
         return deferred.promise;
     }]);
