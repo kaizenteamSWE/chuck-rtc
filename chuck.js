@@ -22,6 +22,7 @@
         chuckdir + 'main/directive/ChuckDonutChart.js',
         chuckdir + 'main/directive/ChuckTable.js',
         chuckdir + 'main/directive/AMChuckBarChart.js',
+        chuckdir + 'main/directive/AMChuckLineChart.js',
 
         chuckdir + 'main/model/norrischart/ChartImpl.js',
         chuckdir + 'main/model/norrischart/BarChartImpl.js',
@@ -37,7 +38,7 @@
         chuckdir + 'main/model/norrischart/MapChartMovieUpdater.js',
         chuckdir + 'main/model/norrischart/DonutChartInPlaceUpdater.js',
         chuckdir + 'main/model/norrischart/TableInPlaceUpdater.js',
-        chuckdir + 'main/model/norrischart/TableStreamUpdater.js'
+        chuckdir + 'main/model/norrischart/TableStreamUpdater.js',
     ]
 
     SCRIPTS.forEach(function (path) {
